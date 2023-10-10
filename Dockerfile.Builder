@@ -35,8 +35,8 @@ COPY --from=packages --chown=node:node /app .
 
 # Stop cypress from downloading it's massive binary.
 ENV CYPRESS_INSTALL_BINARY=0
-# RUN --mount=type=cache,target=/home/node/.cache/yarn,sharing=locked,uid=1000,gid=1000 \
-RUN yarn install --frozen-lockfile --network-timeout 600000
+RUN --mount=type=cache,target=/home/node/.cache/yarn,sharing=locked,uid=1000,gid=1000 \
+    yarn install --frozen-lockfile --network-timeout 600000
 
 COPY --chown=node:node . .
 
@@ -50,3 +50,9 @@ RUN mkdir packages/backend/dist/skeleton packages/backend/dist/bundle \
     && tar xzf packages/backend/dist/bundle.tar.gz -C packages/backend/dist/bundle
 
 RUN rm -rf /app/*
+
+RUN tar -cvzf /app/node.tar.gz /home/node
+
+RUN cd /home/node && \
+    rm -rf -- ..?* .[!.]* *
+

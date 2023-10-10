@@ -13,9 +13,12 @@ yarn dev
 
 Prepare images for inside, first build the base images:
 
+- Builer image is the base image for building inside
+- Runtime image is the base image for running the app
+
 ```sh
-docker image build . -f Dockerfile.Builder --target build --tag backstage_builder
-docker image build . -f Dockerfile.Builder --tag backstage_runtime_base
+docker image build . -f Dockerfile --target build --tag backstage_builder
+docker image build . -f Dockerfile --tag backstage_runtime_base
 ```
 
 This will build two images, one for building the app, and one for running it.
@@ -27,8 +30,16 @@ docker save backstage_builder -o ../../backstage_builder.tar
 docker save backstage_runtime_base -o ../../backstage_runtime_base.tar
 ```
 
+Load the images inside:
+
+```sh
+docker load --input backstage_builder.tar
+docker load --input backstage_runtime_base.tar
+```
+
 To build the final runtime image, run:
 
 ```sh
 docker image build . -f Dockerfile.Wrapper --no-cache --tag backstage_runtime 
+docker run -p 7007:7007 backstage_runtime
 ```
