@@ -28,16 +28,16 @@ backend:
   # This is for local development only, it is not recommended to use this in production
   # The production database configuration is stored in app-config.production.yaml
   database:
-    # client: better-sqlite3
-    # connection: ':memory:'
+    client: better-sqlite3
+    connection: ':memory:'
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
       # config options: https://node-postgres.com/apis/client
-    client: pg
-    connection:
-      host: ${POSTGRES_HOST}
-      port: ${POSTGRES_PORT}
-      user: ${POSTGRES_USER}
-      password: ${POSTGRES_PASSWORD}
+    # client: pg
+    # connection:
+    #   host: 127.0.0.1
+    #   port: 5432
+    #   user: postgres
+    #   password: postgres
       # https://node-postgres.com/features/ssl
       # ssl:
       #   host is only needed if the connection name differs from the certificate name.
@@ -98,9 +98,15 @@ catalog:
     - type: file
       target: ../../examples/entities.yaml
 
-    # Local example template
+    #Local example template
     - type: file
       target: ../../examples/template/template.yaml
+      rules:
+        - allow: [Template]
+
+    # Local HTTP example template
+    - type: file
+      target: ../../examples/jenkins-template.yaml
       rules:
         - allow: [Template]
 
