@@ -50,5 +50,8 @@
     "*.{json,md}": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "@backstage/integration": "^1.7.2"
   }
 }
