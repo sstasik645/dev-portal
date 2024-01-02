@@ -78,24 +78,24 @@ const mockCatalogApi = {
   getEntities: async () => ({ items: entities }),
 };
 
-const mockStackOverflowApi = {
-  listQuestions: async () => [
-    {
-      title: 'Customizing Spotify backstage UI',
-      link: 'stackoverflow.question/1',
-      answer_count: 0,
-      tags: ['backstage'],
-      owner: { 'some owner': 'name' },
-    },
-    {
-      title: 'Customizing Spotify backstage UI',
-      link: 'stackoverflow.question/1',
-      answer_count: 0,
-      tags: ['backstage'],
-      owner: { 'some owner': 'name' },
-    },
-  ],
-};
+// const mockStackOverflowApi = {
+//   listQuestions: async () => [
+//     {
+//       title: 'Customizing Spotify backstage UI',
+//       link: 'stackoverflow.question/1',
+//       answer_count: 0,
+//       tags: ['backstage'],
+//       owner: { 'some owner': 'name' },
+//     },
+//     {
+//       title: 'Customizing Spotify backstage UI',
+//       link: 'stackoverflow.question/1',
+//       answer_count: 0,
+//       tags: ['backstage'],
+//       owner: { 'some owner': 'name' },
+//     },
+//   ],
+// };
 
 const starredEntitiesApi = new MockStarredEntitiesApi();
 starredEntitiesApi.toggleStarred('component:default/example-starred-entity');
