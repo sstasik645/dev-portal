@@ -17,8 +17,8 @@ Prepare images for inside, first build the base images:
 - Runtime image is the base image for running the app
 
 ```sh
-docker image build . -f Dockerfile --target build --tag backstage_builder
-docker image build . -f Dockerfile --tag backstage_runtime_base
+docker image build . -f Dockerfile --target build --tag backstage_builder --no-cache
+docker image build . -f Dockerfile --tag backstage_runtime_base --no-cache
 ```
 
 This will build two images, one for building the app, and one for running it.
@@ -26,8 +26,8 @@ This will build two images, one for building the app, and one for running it.
 To save the built images execute:
 
 ```sh
-docker save backstage_builder -o ../../backstage_builder.tar
-docker save backstage_runtime_base -o ../../backstage_runtime_base.tar
+docker save backstage_builder -o ../backstage_builder.tar
+docker save backstage_runtime_base -o ../backstage_runtime_base.tar
 ```
 
 Load the images inside:
