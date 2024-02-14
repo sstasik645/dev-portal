@@ -5,6 +5,13 @@ import type { PluginEnvironment } from '../types';
 import { ScmIntegrations } from '@backstage/integration';
 import { postHttpRequestAction } from './scaffolder/actions/jenkins-action';
 
+import {
+  createAzurePipelineAction,
+  permitAzurePipelineAction,
+  runAzurePipelineAction,
+} from "@parfuemerie-douglas/scaffolder-backend-module-azure-pipelines";
+
+
 export default async function createPlugin(
   env: PluginEnvironment,
 ): Promise<Router> {
@@ -21,7 +28,13 @@ export default async function createPlugin(
     reader: env.reader,
   });
 
-  const actions = [...builtInActions, postHttpRequestAction()];
+  const actions = [
+    ...builtInActions,
+    postHttpRequestAction(),
+    createAzurePipelineAction({ integrations }),
+    permitAzurePipelineAction({ integrations }),
+    runAzurePipelineAction({ integrations }),
+  ];
 
   return await createRouter({
     actions,
