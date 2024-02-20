@@ -17938,10 +17938,10 @@ jackspeak@^2.0.3:
   optionalDependencies:
     "@pkgjs/parseargs" "^0.11.0"
 
-jenkins@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/jenkins/-/jenkins-1.0.2.tgz#0cc14786e33d330695cf5b1ac9bd8ad13b01116e"
-  integrity sha512-HdgNvNxaW4frxwZcQvhC03xNZQFonugpHfNb8FNw4T0B7M9txzsOWNk6rHapA9NxDwBeJ0wiHINlUFQBaVBJ+g==
+jenkins@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/jenkins/-/jenkins-1.1.0.tgz#be61a07223d076956f357cc324fd18c5b281fcb7"
+  integrity sha512-oLiVMCt5pKp3N3br7P4Fknm5Qyu0katGc4WAhokFtPSE/waePCphK/XST9Fs/srrRY4VtN5wvI79r81fIjZkpg==
   dependencies:
     papi "^1.1.0"
 

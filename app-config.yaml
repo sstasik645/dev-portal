@@ -79,6 +79,8 @@ techdocs:
     runIn: 'local' # Alternatives - 'local'
   publisher:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
+    local:
+      publishDirectory: '/app/published-techdocs'
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
