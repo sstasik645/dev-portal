@@ -4,7 +4,6 @@ import { Router } from 'express';
 import type { PluginEnvironment } from '../types';
 import { ScmIntegrations } from '@backstage/integration';
 import { postHttpRequestAction } from './scaffolder/actions/jenkins-action';
-import { gitCloneAction, gitAction } from "@mdude2314/backstage-plugin-scaffolder-git-actions";
 
 import {
   createAzurePipelineAction,
@@ -35,8 +34,6 @@ export default async function createPlugin(
     createAzurePipelineAction({ integrations }),
     permitAzurePipelineAction({ integrations }),
     runAzurePipelineAction({ integrations }),
-    gitAction(),
-    gitCloneAction(),
   ];
 
   return await createRouter({
