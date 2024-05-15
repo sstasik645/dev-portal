@@ -18,7 +18,7 @@ Prepare images for inside, first build the base images:
 
 ```sh
 docker image build . -f Dockerfile --target build --tag backstage_builder --no-cache
-docker image build . -f Dockerfile --tag backstage_runtime_base --no-cache
+docker image build . -f Dockerfile --tag backstage_runtime_base
 ```
 
 This will build two images, one for building the app, and one for running it.
