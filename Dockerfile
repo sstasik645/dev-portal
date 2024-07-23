@@ -74,6 +74,8 @@ RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 RUN pip3 install mkdocs-techdocs-core
+RUN pip3 install graphviz
+RUN pip3 install plantuml
 
 # From here on we use the least-privileged `node` user to run the backend.
 ARG ON_OCP=true
